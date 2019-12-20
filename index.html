@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="full-screen" content="true">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>- 贪吃蛇 长按加速-</title>
+</head>
+<body>
+
+    <div class="startPage" id="startPage">
+        <div class="startBtn" id = "startBtn"></div>
+    </div>
+
+    <div id="container">
+        <div class="left-side">
+            <img src="img/start.png" alt="" class="startPause" id="startPause">
+        </div>
+
+       <div class="main">
+            <div class="header">
+                <div class="score">
+                    分数:
+                    <span id="score"></span>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <div class="loser" id="loser">
+        <div class="con">
+         <div class="close" id="close"></div>
+         <span class="loserScore" id="loserScore"></span>
+        </div>
+    </div>
+
+    <div id = 'direc'>
+        <div id='left1'></div>
+        <div id='right1'></div>
+        <div id='top1'></div>
+        <div id='bottom1'></div>
+    </div>
+    <script>
+    var width = window.innerWidth;
+    var height =  window.innerHeight;
+    var rhw = document.getElementById('container');
+
+    change();
+    window.onresize = function(){
+        rhw.style.width = width;
+        rhw.style.height = height;
+        change();
+    }
+
+    function change(){
+        if( width < height ){
+        var bg =  document.getElementById('container');
+        bg.style.width = height-1+"px";
+        bg.style.height = width-1+"px";
+        bg.style.marginTop = (height-width)/2 +"px";
+        bg.style.marginLeft =  -(height-width)/2+"px";
+        bg.style.transform = 'rotate(90deg)';
+//        bg.style.transform-origin = '50% 50%';
+    }else if( width > height ) {
+        var bg =  document.getElementById('container');
+        bg.style.width = width+"px";
+        bg.style.height = height+"px";
+        var bgbody =  document.getElementsByTagName('body')[0];
+        bgbody.style.width = width+"px";
+        bgbody.style.height = height+"px";
+    }
+
+    }
+    
+    </script>
+    <script src="js/index.js"></script>
+</html>
